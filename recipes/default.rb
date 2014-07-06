@@ -6,5 +6,5 @@
 #
 # All rights reserved - Do Not Redistribute
 
-include_recipe "nginx::default"
+include_recipe "nginx::source"
 include_recipe "nginx::passenger"
