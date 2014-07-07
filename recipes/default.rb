@@ -16,6 +16,7 @@ end
 
 # install nginx which contains passenger support
 package "nginx-full"
+include_recipe "nginx::passenger"
 
 # create server config template in nginx config directory
 template "/etc/nginx/sites-available/plantasy" do
