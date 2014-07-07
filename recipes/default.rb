@@ -16,6 +16,12 @@ end
 
 # install nginx which contains passenger support
 package "nginx-full"
+
+service 'nginx' do
+  supports :status => true, :restart => true, :reload => true
+  action   :start
+end
+
 include_recipe "nginx::passenger"
 
 # create server config template in nginx config directory
