@@ -9,9 +9,15 @@
 include_recipe "nginx::source"
 include_recipe "nginx::passenger"
 
-template "/etc/nginx/sites-enabled/plantasy" do
+# create server config template in nginx config directory
+template "/etc/nginx/sites-available/plantasy" do
   source "templates/default/plantasy.erb"
   mode 0644
   owner "root"
   group "root"
+end
+
+# symlink the config to the active sites directory
+link "/etc/nginx/sites-enabled/plantasy" do
+  to "/etc/nginx/sites-available/plantasy"
 end
