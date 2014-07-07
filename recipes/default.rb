@@ -11,7 +11,7 @@ include_recipe "nginx::passenger"
 
 # create server config template in nginx config directory
 template "/etc/nginx/sites-available/plantasy" do
-  source "templates/default/plantasy.erb"
+  source "plantasy.erb"
   mode 0644
   owner "root"
   group "root"

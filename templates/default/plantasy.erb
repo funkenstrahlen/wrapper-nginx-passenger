@@ -1,0 +1,13 @@
+# Only for development purposes.
+# For production environment, set it accordingly (i.e. production)
+# Remove this line when you upload an actual application.
+# For * TESTING * purposes only.
+passenger_app_env development;
+
+server {
+  listen <%= node['nginx']['passenger']['port'] %>;
+  server_name example.com;
+  passenger_enabled on;
+  passenger_ruby <%= node['nginx']['passenger']['ruby'] %>;
+  root <%= node['nginx']['passenger']['app_root'] %>;
+}
