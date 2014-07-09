@@ -8,10 +8,10 @@
 
 # force settings of $PATH to ensure working passenger compilation
 execute "set ruby version to #{node[:rvm][:default_ruby]}" do
- code <<EOH
-  source "/etc/profile.d/rvm.sh"
-  rvm use "#{node[:rvm][:default_ruby]}"
- <<EOH
+  command <<-EOH
+  source /etc/profile.d/rvm.sh \
+  rvm use #{node[:rvm][:default_ruby]} \
+EOH
   action :nothing
 end
 
