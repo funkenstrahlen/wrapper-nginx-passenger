@@ -6,14 +6,8 @@
 #
 # All rights reserved - Do Not Redistribute
 
-# force settings of $PATH to ensure working passenger compilation
-execute "set ruby version to #{node[:rvm][:default_ruby]}" do
-  command <<-EOH
-  source /etc/profile.d/rvm.sh
-  rvm use #{node[:rvm][:default_ruby]}
-EOH
-  action :nothing
-end
+include_recipe "ruby_build"
+ruby_build_ruby "#{node[:ruby][:version]}"
 
 include_recipe "nginx::source"
 include_recipe "nginx::passenger"
