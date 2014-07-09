@@ -6,9 +6,11 @@
 #
 # All rights reserved - Do Not Redistribute
 
+# install ruby
 include_recipe "ruby_build"
 ruby_build_ruby "#{node[:ruby][:version]}"
 
+# compile nginx with passenger support
 include_recipe "nginx::source"
 include_recipe "nginx::passenger"
 
