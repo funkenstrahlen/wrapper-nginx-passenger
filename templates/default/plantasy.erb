@@ -8,6 +8,5 @@ server {
   listen <%= node['nginx']['passenger']['port'] %>;
   server_name example.com;
   passenger_enabled on;
-  passenger_ruby <%= node['nginx']['passenger']['ruby'] %>;
   root <%= node['nginx']['passenger']['app_root'] %>;
 }
